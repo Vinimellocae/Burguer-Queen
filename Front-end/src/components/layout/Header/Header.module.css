@@ -1,0 +1,100 @@
+/* Header.module.css */
+.header {
+  height: 88px;
+  border-bottom: solid 2px var(--border-subtle);
+  background-color: var(--surface-1);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.link {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  padding: var(--space-1) 0;
+  border-bottom: solid 2px transparent;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--text-primary);
+}
+
+.linkActive {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+.user {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon {
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.icon:hover {
+  color: var(--accent);
+}
+
+/* Header.module.css — adiciona/edita */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.brand:hover {
+  opacity: 0.85;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+
+.brandName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brandName span {
+  color: var(--accent-soft);
+}

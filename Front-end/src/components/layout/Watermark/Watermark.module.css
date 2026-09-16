@@ -1,0 +1,21 @@
+/* Watermark.module.css */
+.watermark {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-4);
+  height: 180px;
+  width: 180px;
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .watermark {
+    height: 70px;
+    width: 70px;
+    right: var(--space-3);
+    bottom: var(--space-3);
+  }
+}

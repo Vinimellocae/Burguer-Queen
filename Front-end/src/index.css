@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-family: "Inter", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ================= ESPAÇAMENTOS ================= */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+
+  /* ================= RADIUS ================= */
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  /* ================= TRANSITIONS ================= */
+
+  --transition-fast: 120ms ease;
+  --transition-normal: 180ms ease;
+  --transition-slow: 250ms ease;
+
+  /* ================= SURFACES ================= */
+
+  --surface-page: #181b21;
+
+  --surface-1: #21252d;
+  --surface-2: #2a303a;
+  --surface-3: #353d49;
+
+  --surface-floating: #2d3440;
+  --surface-inverse: #ffffff;
+  --surface-accent: #41305e;
+
+  --surface-selected: #414858;
+  --surface-disabled: #252932;
+
+  /* ===========================================================
+     ACCENT
+  =========================================================== */
+
+  --accent: #a5413a;
+  --accent-hover: #812822;
+  --accent-soft: #d47871;
+  --accent-contrast: #ffffff;
+
+  /* ================= TEXTOS ================= */
+
+  --text-primary: #f2f4f8;
+  --text-secondary: #b5bac7;
+  --text-muted: #8b92a3;
+  --text-inverse: #000;
+  --text-disabled: #5e6775;
+  --text-link: #bca7ff;
+
+  /* ================= BORDAS ================= */
+
+  --border-subtle: #343a46;
+  --border-default: #4b5363;
+  --border-strong: #616c7f;
+
+  --border-focus: #b79bff;
+  --border-danger: #ef4444;
+
+  /* ================= SHADOWS ================= */
+
+  --shadow-color: rgba(0, 0, 0, 0.45);
+
+  /* ================= HEADER ================= */
+
+  --header-bg: #161922;
+  --header-nav: #10131a;
+  --header-border: rgba(255, 255, 255, 0.06);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+main {
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
+}
+
+/* Scrollbar personalizada */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-default);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--surface-page);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+  border-color: var(--surface-page);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

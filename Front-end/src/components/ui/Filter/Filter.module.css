@@ -1,0 +1,23 @@
+.filter {
+  background-color: transparent;
+  color: var(--accent-soft);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: solid 2px var(--accent);
+  width: fit-content;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.selected {
+  background-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.selected:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-primary);
+  border: solid 2px var(--accent-hover);
+}

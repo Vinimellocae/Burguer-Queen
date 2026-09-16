@@ -1,0 +1,74 @@
+/* KanbanColumn.module.css */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--surface-1);
+  border: solid 1px var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  min-height: 200px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: solid 2px var(--border-subtle);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotPendente {
+  background-color: var(--accent);
+}
+
+.dotEmPreparo {
+  background-color: #c9973f;
+}
+
+.dotPronto {
+  background-color: #4caf6d;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.count {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  background-color: var(--surface-3);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xl);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.empty {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-5) 0;
+}
