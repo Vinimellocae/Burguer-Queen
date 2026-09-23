@@ -4,6 +4,8 @@ Cardápio digital com autoatendimento, painel de cozinha e acompanhamento de ped
 
 Projeto fictício de uma hamburgueria que enfrenta problemas recorrentes de atendimento presencial — fila de espera, erros de anotação, falta de visibilidade na cozinha e ausência de canal de feedback — resolvidos através de um sistema web de autoatendimento.
 
+🔗 **Acesse o projeto:** [burguer-queen-eight.vercel.app](https://burguer-queen-eight.vercel.app/)
+
 ## 📋 Sobre o projeto
 
 Este projeto foi desenvolvido como trabalho acadêmico, com o objetivo de identificar problemas reais enfrentados por um estabelecimento comercial e propor uma solução de software que os sanasse. Foi definida uma hamburgueria fictícia, a **Burguer Queen**, e mapeados os seguintes problemas e soluções:
@@ -41,12 +43,12 @@ Pré-requisitos: [Node.js](https://nodejs.org/) instalado.
 
 ```bash
 # Clonar o repositório
-git clone <url-do-repositorio>
-cd <nome-da-pasta>
-
+git clone https://github.com/Vinimellocae/Burguer-Queen.git
+cd Burguer-Queen/Front-end
+ 
 # Instalar dependências
 npm install
-
+ 
 # Rodar em ambiente de desenvolvimento
 npm run dev
 ```
@@ -56,15 +58,27 @@ O projeto estará disponível em `http://localhost:5173`.
 ## 📁 Estrutura do projeto
 
 ```
-src/
-├── assets/              # Imagens e logo
-├── components/
-│   ├── features/        # Componentes de domínio (CartCard, ProductCard, OrderCard...)
-│   └── ui/               # Componentes de interface reutilizáveis (Filter, StarRating...)
-├── contexts/             # Contextos globais (Cart, Orders, Reviews)
-├── pages/                # Telas da aplicação (Menu, Orders, Reviews, Error404...)
-├── routes/               # Definição de rotas e paths
-└── types/                # Tipagens compartilhadas
+Front-end/
+├── public/
+├── src/
+│   ├── assets/           # Imagens e logo
+│   ├── components/
+│   │   ├── features/     # Componentes de domínio (CartCard, ProductCard, OrderCard...)
+│   │   ├── layout/       # Componentes de estrutura da página (Header, Sidebar...)
+│   │   └── ui/           # Componentes de interface reutilizáveis (Filter...)
+│   ├── contexts/         # Contextos globais (Cart, Orders, Reviews)
+│   ├── data/             # Dados estáticos
+│   ├── pages/             # Telas da aplicação (Menu, Orders, Reviews, Error404...)
+│   ├── routes/            # Definição de rotas e paths
+│   ├── types/             # Tipagens compartilhadas
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+├── vercel.json
+└── vite.config.ts
 ```
 
 ## ⚠️ Escopo e observações
