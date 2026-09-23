@@ -4,11 +4,17 @@ import "./index.css";
 import { RouterProvider } from "react-router";
 import { router } from "./routes/router.tsx";
 import { CartProvider } from "./contexts/CartContext.tsx";
+import { OrdersProvider } from "./contexts/OrdersContext.tsx";
+import { ReviewsProvider } from "./contexts/ReviewsContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <CartProvider>
-      <RouterProvider router={router} />
+      <OrdersProvider>
+        <ReviewsProvider>
+          <RouterProvider router={router} />
+        </ReviewsProvider>
+      </OrdersProvider>
     </CartProvider>
   </StrictMode>,
 );

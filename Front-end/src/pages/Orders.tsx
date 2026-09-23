@@ -1,6 +1,6 @@
-import KanbanColumn from "@/components/features/Kanban/KanbanColumn";
-import type { OrderStatus } from "@/components/features/OrderCard/OderCard";
-import { orders } from "@/data/orders";
+import { KanbanColumn } from "@/components/features/Orders";
+import { useOrders } from "@/contexts/OrdersContext";
+import type { OrderStatus } from "@/types/Order";
 
 const columns: { title: string; status: OrderStatus }[] = [
   { title: "Pendente", status: "pendente" },
@@ -9,6 +9,7 @@ const columns: { title: string; status: OrderStatus }[] = [
 ];
 
 const Orders = () => {
+  const { orders } = useOrders();
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       <p className="text-md pb-4 font-semibold items-center">

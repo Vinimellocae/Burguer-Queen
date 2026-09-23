@@ -1,9 +1,10 @@
-import ProductCard from "@/components/features/ProductCard/ProductCard";
-import Filter from "@/components/ui/Filter/Filter";
+import { ProductCard } from "@/components/features/Menu";
+import { Filter } from "@/components/ui";
 import { useCart } from "@/contexts/CartContext";
 import { products } from "@/data/products";
-import type { Product } from "@/types/ProductType";
+import type { Product } from "@/types/Product";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 
 type FilterType = "Hamburguer" | "Bebida" | "Aperitivo";
 
@@ -53,7 +54,10 @@ const Menu = () => {
             <ProductCard
               key={p.id}
               product={p}
-              onAddToCart={() => addItem(p)}
+              onAddToCart={() => {
+                toast.success(`${p.title} adicionado ao carrinho!`);
+                addItem(p);
+              }}
             />
           ))}
         </div>

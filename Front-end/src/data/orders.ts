@@ -1,4 +1,4 @@
-import type { Order } from "@/components/features/OrderCard/OderCard";
+import type { Order } from "@/types/Order";
 
 export const orders: Order[] = [
   {
@@ -7,7 +7,7 @@ export const orders: Order[] = [
     description: "Sem cebola e sem tomate.",
     time: "11:42",
     status: "pendente",
-    table: 5,
+    orderNumber: 5,
   },
   {
     id: "order-2",
@@ -15,14 +15,15 @@ export const orders: Order[] = [
     description: "Adicionar bastante bacon.",
     time: "11:38",
     status: "em-preparo",
-    table: 5,
+    orderNumber: 5,
   },
   {
     id: "order-3",
-    itemName: "Big-Gordinho",
-    time: "11:36",
+    itemName: "Nuggets de Frango",
+    description: "Molho de cheddar.",
+    time: "11:09",
     status: "pendente",
-    table: 8,
+    orderNumber: 9,
   },
   {
     id: "order-4",
@@ -30,7 +31,7 @@ export const orders: Order[] = [
     description: "Sem maionese.",
     time: "11:31",
     status: "em-preparo",
-    table: 3,
+    orderNumber: 3,
   },
   {
     id: "order-5",
@@ -38,14 +39,15 @@ export const orders: Order[] = [
     description: "Adicionar molho barbecue à parte.",
     time: "11:25",
     status: "pronto",
-    table: 4,
+    orderNumber: 4,
   },
   {
     id: "order-6",
-    itemName: "Coca-Cola Lata",
-    time: "11:44",
-    status: "pendente",
-    table: 2,
+    itemName: "Onion Rings",
+    description: "Molho barbecue separado, por favor.",
+    time: "11:14",
+    status: "pronto",
+    orderNumber: 1,
   },
   {
     id: "order-7",
@@ -53,43 +55,13 @@ export const orders: Order[] = [
     description: "Sem açúcar.",
     time: "11:22",
     status: "pronto",
-    table: 7,
+    orderNumber: 7,
   },
   {
     id: "order-8",
     itemName: "Milk-Shake de Chocolate",
     time: "11:18",
     status: "em-preparo",
-    table: 6,
-  },
-  {
-    id: "order-9",
-    itemName: "Onion Rings",
-    description: "Molho barbecue separado, por favor.",
-    time: "11:14",
-    status: "pronto",
-    table: 1,
-  },
-  {
-    id: "order-10",
-    itemName: "Nuggets de Frango",
-    description: "Molho de cheddar.",
-    time: "11:09",
-    status: "pendente",
-    table: 9,
-  },
-  {
-    id: "order-11",
-    itemName: "X-Burguer",
-    time: "11:03",
-    status: "em-preparo",
-    table: 2,
-  },
-  {
-    id: "order-12",
-    itemName: "Batata Frita",
-    time: "10:57",
-    status: "pronto",
-    table: 10,
+    orderNumber: 6,
   },
 ];

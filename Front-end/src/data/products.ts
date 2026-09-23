@@ -1,4 +1,4 @@
-import type { Product } from "@/types/ProductType";
+import type { Product } from "@/types/Product";
 
 export const products: Product[] = [
   // ===== Hambúrgueres =====

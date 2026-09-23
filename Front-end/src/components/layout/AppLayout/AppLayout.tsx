@@ -1,8 +1,7 @@
-import { Outlet } from "react-router";
-import Header from "../Header/Header";
 import { useState } from "react";
-import CartSidebar from "../Sidebar/CartSidebar";
-import Watermark from "../Watermark/Watermark";
+import { CartSidebar, Header, Watermark } from "..";
+import { Outlet } from "react-router";
+import { Toaster } from "sonner";
 
 const AppLayout = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -19,6 +18,17 @@ const AppLayout = () => {
 
       <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <Watermark />
+      <Toaster
+        position="bottom-left"
+        theme="dark"
+        toastOptions={{
+          style: {
+            background: "var(--surface-2)",
+            border: "1px solid var(--border-subtle)",
+            color: "var(--text-primary)",
+          },
+        }}
+      />
     </div>
   );
 };

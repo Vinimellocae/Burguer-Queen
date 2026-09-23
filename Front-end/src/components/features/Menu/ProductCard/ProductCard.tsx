@@ -1,7 +1,7 @@
 // ProductCard.tsx
 import { ShoppingBagIcon } from "lucide-react";
 import styles from "./ProductCard.module.css";
-import type { Product } from "@/types/ProductType";
+import type { Product } from "@/types/Product";
 
 interface ProductCardProps {
   product: Product;

@@ -1,56 +1,90 @@
-import CartCard from "@/components/features/CartCard/CartCard";
+// CartSidebar.tsx
+import CartCard from "@/components/features/Cart/CartCard/CartCard";
 import { useCart } from "@/contexts/CartContext";
 import { X } from "lucide-react";
+import styles from "./CartSidebar.module.css";
+import { useOrders } from "@/contexts/OrdersContext";
+import { toast } from "sonner";
 
 interface CartSidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const formatPrice = (value: number) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value);
+
 const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
-  const { items, removeItem, updateAmount } = useCart();
+  const { items, removeItem, updateAmount, clearCart, updateObservation } =
+    useCart();
+  const { createOrdersFromCart } = useOrders();
   const emptyCart = items.length === 0;
+
+  const total = items.reduce((sum, item) => sum + item.price * item.amount, 0);
+
+  const handleOrder = () => {
+    if (emptyCart) return;
+
+    createOrdersFromCart(items);
+    clearCart();
+    toast.success("Pedido feito com sucesso!");
+
+    onClose();
+  };
 
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/50 transition-opacity duration-300 z-40 ${
-          isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`${styles.overlay} ${isOpen ? styles.overlayOpen : styles.overlayClosed}`}
         onClick={onClose}
       />
 
-      {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[var(--surface-1)] border-l border-[var(--border-subtle)] z-50 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-[var(--border-subtle)]">
-          <h2 className="text-[var(--text-primary)] font-semibold">Carrinho</h2>
-          <X
-            size={18}
-            onClick={onClose}
-            className="text-[var(--text-secondary)] cursor-pointer"
-          />
+        <div className={styles.header}>
+          <h2 className={styles.title}>Carrinho</h2>
+          <X size={18} onClick={onClose} className={styles.closeIcon} />
         </div>
 
-        <div className="flex flex-col p-4 gap-2">
+        <div className={styles.list}>
           {emptyCart && (
-            <p className="text-[var(--text-secondary)] text-sm">
-              Seu carrinho está vazio...
-            </p>
+            <p className={styles.empty}>Seu carrinho está vazio...</p>
           )}
 
           {items.map((item) => (
             <CartCard
+              key={item.id}
               item={item}
-              onRemove={() => removeItem(item.id)}
+              onRemove={() => {
+                removeItem(item.id);
+                toast.success(`${item.title} removido do carrinho!`);
+              }}
               onAmountChange={(amount) => updateAmount(item.id, amount)}
+              onObservationChange={(observation) =>
+                updateObservation(item.id, observation)
+              }
             />
           ))}
+        </div>
+
+        <div className={styles.footer}>
+          <div className={styles.totalRow}>
+            <span className={styles.totalLabel}>Total</span>
+            <span className={styles.totalValue}>{formatPrice(total)}</span>
+          </div>
+
+          <button
+            type="button"
+            className={styles.orderButton}
+            onClick={handleOrder}
+            disabled={emptyCart}
+          >
+            Fazer pedido
+          </button>
         </div>
       </aside>
     </>

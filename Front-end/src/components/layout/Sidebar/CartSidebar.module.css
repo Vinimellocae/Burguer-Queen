@@ -1,0 +1,140 @@
+/* CartSidebar.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  transition: opacity var(--transition-normal);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlayClosed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 24rem;
+  background-color: var(--surface-1);
+  border-left: solid 1px var(--border-subtle);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal);
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sidebarClosed {
+  transform: translateX(100%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: solid 1px var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.title {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.closeIcon {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.closeIcon:hover {
+  color: var(--text-primary);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+
+.empty {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: var(--space-4);
+  border-top: solid 1px var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.totalValue {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.orderButton {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.orderButton:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.orderButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.orderButton:disabled {
+  background-color: var(--surface-3);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.orderButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(183, 155, 255, 0.35);
+}

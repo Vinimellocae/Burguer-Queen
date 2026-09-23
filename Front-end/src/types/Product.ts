@@ -11,5 +11,5 @@ export interface Product {
 
 export interface CartItem extends Product {
   amount: number;
-  observation?: string; // já que você tem o textarea, pode centralizar aqui também
+  observation?: string;
 }

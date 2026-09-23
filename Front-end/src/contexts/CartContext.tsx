@@ -1,4 +1,4 @@
-import type { CartItem, Product } from "@/types/ProductType";
+import type { CartItem, Product } from "@/types/Product";
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface CartContextType {
@@ -6,6 +6,8 @@ interface CartContextType {
   addItem: (product: Product) => void;
   removeItem: (productId: string) => void;
   updateAmount: (productId: string, amount: number) => void;
+  clearCart: () => void;
+  updateObservation: (productId: string, observation: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -40,8 +42,29 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setItems((prev) => prev.filter((item) => item.id !== productId));
   };
 
+  const clearCart = () => {
+    setItems([]);
+  };
+
+  const updateObservation = (productId: string, observation: string) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === productId ? { ...item, observation } : item,
+      ),
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, updateAmount }}>
+    <CartContext.Provider
+      value={{
+        items,
+        addItem,
+        removeItem,
+        updateAmount,
+        clearCart,
+        updateObservation,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

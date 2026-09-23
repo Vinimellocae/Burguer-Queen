@@ -1,7 +1,7 @@
 // KanbanColumn.tsx
-import type { Order, OrderStatus } from "../OrderCard/OderCard";
-import OrderCard from "../OrderCard/OderCard";
+import type { Order, OrderStatus } from "@/types/Order";
 import styles from "./KanbanColumn.module.css";
+import { OrderCard } from "..";
 
 interface KanbanColumnProps {
   title: string;

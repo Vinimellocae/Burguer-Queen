@@ -1,0 +1,32 @@
+/* StarRating.module.css */
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--border-default);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.starButton:hover {
+  transform: scale(1.1);
+}
+
+.starFilled {
+  color: var(--accent-soft);
+}
+
+.readOnly {
+  cursor: default;
+}
+
+.readOnly:hover {
+  transform: none;
+}

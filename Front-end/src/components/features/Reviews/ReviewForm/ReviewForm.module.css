@@ -1,0 +1,67 @@
+/* PendingReviewCard.module.css */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--surface-2);
+  border: solid 1px var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.comment {
+  width: 100%;
+  padding: var(--space-2);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background-color: var(--surface-1);
+  border: solid 1px var(--border-subtle);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  min-height: 60px;
+}
+
+.comment::placeholder {
+  color: var(--text-muted);
+}
+
+.comment:focus-visible {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+.submitButton {
+  align-self: flex-end;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.submitButton:disabled {
+  background-color: var(--surface-3);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
